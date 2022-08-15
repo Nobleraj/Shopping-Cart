@@ -10,15 +10,13 @@ const product = (state, action) => {
         cart: state.cart.filter((val) => val.id !== action.payload),
       };
     case 'ADD_REMOVE_QTY':
-      let { flag, id } = action.payload;
-      let tempCart = [...state.cart];
-      let ind = tempCart.findIndex((indx) => indx.id == id);
-      tempCart[ind].qty = flag
-        ? tempCart[ind].qty + 1
-        : tempCart[ind].qty > 1
-        ? tempCart[ind].qty - 1
-        : tempCart[ind].qty;
-      return { ...state, cart: tempCart };
+      let { qty, id } = action.payload;
+      return {
+        ...state,
+        cart: state.cart.filter((val) =>
+          val.id === id ? (val.qty = qty) : val.qty
+        ),
+      };
     default:
       return state;
   }

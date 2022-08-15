@@ -3,11 +3,11 @@ import React from 'react';
 const Cart = ({ state, dispatch }) => {
   const cart = state.cart;
 
-  const addRemoveQty = (id, flag) => {
+  const addRemoveQty = (id, qty) => {
     dispatch({
       type: 'ADD_REMOVE_QTY',
       payload: {
-        flag,
+        qty,
         id,
       },
     });
@@ -30,9 +30,13 @@ const Cart = ({ state, dispatch }) => {
               <span>{itm.title}</span>
               <span className="price">${itm.price}</span>
               <div className="cart-action">
-                <button onClick={() => addRemoveQty(itm.id, false)}>-</button>
+                <button onClick={() => addRemoveQty(itm.id, itm.qty - 1)}>
+                  -
+                </button>
                 <span className="qty">{itm.qty}</span>
-                <button onClick={() => addRemoveQty(itm.id, true)}>+</button>
+                <button onClick={() => addRemoveQty(itm.id, itm.qty + 1)}>
+                  +
+                </button>
               </div>
             </div>
           </div>
