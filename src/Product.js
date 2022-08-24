@@ -4,8 +4,11 @@ import axios from 'axios';
 import productReducer from './reducers/product';
 import Product from './components/product';
 import Cart from './components/cart';
+import { useNavigate } from 'react-router-dom';
 
 export default function App() {
+  let navigate = useNavigate();
+
   const [state, dispatch] = useReducer(productReducer, {
     products: [],
     cart: [],
@@ -24,7 +27,15 @@ export default function App() {
   }, []);
 
   return (
-    <div className="main">
+    <div className="prd">
+      <button
+        className="fake-btn"
+        onClick={() => {
+          navigate('/product', { replace: false });
+        }}
+      >
+        Product
+      </button>
       <div className="product-wrapper">
         <Product state={state} dispatch={dispatch} />
       </div>

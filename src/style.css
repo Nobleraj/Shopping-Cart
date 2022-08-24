@@ -13,14 +13,22 @@ p {
   position: absolute;
   top: 0;
 }
-.header a{
+.header a {
   padding-left: 10px;
 }
-
+.fake-btn {
+  position: absolute;
+}
+.prd {
+  display: flex;
+  height: 100vh;
+}
 .product-wrapper {
+  margin-top: 40px;
   width: 80%;
 }
 .cart-wrapper {
+  margin-top: 40px;
   width: 20%;
   background-color: #eee;
 }
