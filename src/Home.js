@@ -7,7 +7,7 @@ export default function App() {
       Home Page
       <button
         onClick={() => {
-          navigate('/product', { replace: false });
+          navigate('/product');
         }}
       >
         Product

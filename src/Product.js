@@ -31,7 +31,7 @@ export default function App() {
       <button
         className="fake-btn"
         onClick={() => {
-          navigate('/product', { replace: false });
+          navigate('/product');
         }}
       >
         Product
