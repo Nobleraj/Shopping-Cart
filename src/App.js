@@ -1,36 +1,23 @@
-import React, { useState, useReducer, useEffect, useCallback } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './style.css';
-import axios from 'axios';
-import productReducer from './reducers/product';
-import Product from './product';
-import Cart from './cart';
+import Home from './Home';
+import About from './About';
+import Product from './Product';
 
 export default function App() {
-  const [state, dispatch] = useReducer(productReducer, {
-    products: [],
-    cart: [],
-  });
-
-  const api = useCallback(async () => {
-    const { data } = await axios.get('https://dummyjson.com/products');
-    dispatch({
-      type: 'GET_PRODUCTS',
-      payload: data.products,
-    });
-  }, []);
-
-  useEffect(() => {
-    api();
-  }, []);
-
   return (
     <div className="main">
-      <div className="product-wrapper">
-        <Product state={state} dispatch={dispatch} />
-      </div>
-      <div className="cart-wrapper">
-        <Cart state={state} dispatch={dispatch} />
-      </div>
+      <Link to="/">Home</Link>
+      <Link to="product">Product</Link>
+      <Link to="about">About</Link>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="product" element={<Product />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
