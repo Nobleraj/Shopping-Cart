@@ -7,6 +7,14 @@ p {
 .main {
   display: flex;
   height: 100vh;
+  margin-top: 40px;
+}
+.header {
+  position: absolute;
+  top: 0;
+}
+.header a{
+  padding-left: 10px;
 }
 
 .product-wrapper {

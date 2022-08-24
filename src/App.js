@@ -8,10 +8,12 @@ import Product from './Product';
 export default function App() {
   return (
     <div className="main">
-      <Link to="/">Home</Link>
-      <Link to="product">Product</Link>
-      <Link to="about">About</Link>
       <BrowserRouter>
+        <div className="header">
+          <Link to="/">Home</Link>
+          <Link to="product">Product</Link>
+          <Link to="about">About</Link>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="product" element={<Product />} />
